@@ -4,14 +4,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../store/modules/productsReducer";
 import ProductList from "../components/ProductList";
 
-const AllProducts = () => {
+const products = () => {
   const dispatch = useDispatch();
-  const { allProducts } = useSelector((state) => state.productsReducer);
+  const { products } = useSelector((state) => state.productsReducer);
+  console.log("hei jeg er products.js");
 
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
-  const memoProducts = useMemo(() => allProducts, [allProducts]);
+  const memoProducts = useMemo(() => products, [products]);
   return (
     <>
       <p className="text-red-600">PRODUCTS</p>
@@ -20,4 +21,4 @@ const AllProducts = () => {
   );
 };
 
-export default AllProducts;
+export default products;

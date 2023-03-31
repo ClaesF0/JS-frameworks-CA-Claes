@@ -1,11 +1,11 @@
 import { Route, Routes } from "react-router-dom";
-import AllProducts from "../views/AllProducts";
+import Products from "../components/views/Products";
 
 function Router() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<AllProducts />} />
+        <Route path="/" element={<Products />} />
       </Routes>
     </>
   );
