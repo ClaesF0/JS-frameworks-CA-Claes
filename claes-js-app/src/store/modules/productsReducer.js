@@ -29,12 +29,12 @@ const { SET_PRODUCT } = productsSlice.actions;
 
 export const fetchProducts = () => async (dispatch) => {
   try {
-    //const response = await fetch("https://api.noroff.dev/api/v1/online-shop");
-    const response = await fetch("https://dummyjson.com/products");
+    const response = await fetch("https://api.noroff.dev/api/v1/online-shop");
+    //const response = await fetch("https://dummyjson.com/products");
     const data = await response.json();
     console.log("HEI FRA INNI productsSREDUCER");
-    console.log("data", data.allProducts);
-    dispatch(SET_ALL_PRODUCTS(data.allProducts));
+    console.log("data", data);
+    dispatch(SET_ALL_PRODUCTS(data));
   } catch (e) {
     return console.error("error from api call", e.message);
   }
