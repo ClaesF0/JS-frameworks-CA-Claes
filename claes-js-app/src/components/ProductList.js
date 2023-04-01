@@ -3,38 +3,41 @@ import { Link } from "react-router-dom";
 
 const ProductList = ({ products }) => {
   return (
-    <div>
+    <>
       <p className="text-xl">All products</p>
-      {products.map((product) => (
-        <div key={product.id} className="border border-gray-500">
-          <Link to={`/products/${product.id}`}>
-            <img src={product.imageUrl} alt={product.title} />
-          </Link>
-          <h2>{product.title}</h2>
-          <p>{product.description}</p>
-          <p>{product.price}</p>
-          <p>{product.discountedPrice}</p>
+      <div className="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+        {products.map((product) => (
+          <div key={product.id} className="border border-gray-500">
+            <Link to={`/products/${product.id}`}>
+              <img src={product.imageUrl} alt={product.title} />
+            </Link>
+            <h2>{product.title}</h2>
+            <p>{product.description}</p>
+            <p>{product.price}</p>
+            <p>{product.discountedPrice}</p>
 
-          <label class="rating-label ">
-            <p className="text-xs ">Rated {product.rating}/5</p>
-            <input
-              aria-label={`Rating ${product.rating} out of 5`}
-              class="rating"
-              max="5"
-              readonly
-              step="0.01"
-              style={{ "--fill": "#0097a7", "--value": product.rating }}
-              type="range"
-            />
-          </label>
-          <p className="text-red-500">
-            {product.tags.map((tag) => (
-              <p>{tag}</p>
-            ))}
-          </p>
-        </div>
-      ))}
-    </div>
+            <label class="rating-label ">
+              <p className="text-xs ">Rated {product.rating}/5</p>
+              <input
+                aria-label={`Rating ${product.rating} out of 5`}
+                class="rating"
+                max="5"
+                readonly
+                step="0.01"
+                style={{ "--fill": "#0097a7", "--value": product.rating }}
+                type="range"
+              />
+            </label>
+            <p className="text-red-500">
+              Tags:
+              {product.tags.map((tag) => (
+                <p>{tag}</p>
+              ))}
+            </p>
+          </div>
+        ))}
+      </div>
+    </>
   );
 };
 
