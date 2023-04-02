@@ -20,8 +20,8 @@ function App() {
   return (
     <div className="App">
       <Navbar />
+
       <Router />
-      Hello from App.js
     </div>
   );
 }

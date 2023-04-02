@@ -13,7 +13,6 @@ const Products = () => {
 
   return (
     <div>
-      <h1>hallo jeg er Products</h1>
       <ProductList products={products} />
     </div>
   );
