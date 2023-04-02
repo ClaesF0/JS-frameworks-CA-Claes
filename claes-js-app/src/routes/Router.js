@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import Products from "../components/views/Products";
+//import SingleProduct from "claes-js-app/src/components/views/SingleProduct.js";
 import SingleProduct from "../components/views/SingleProduct";
 
 function Router() {

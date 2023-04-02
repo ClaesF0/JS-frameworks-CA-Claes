@@ -30,9 +30,7 @@ const { SET_PRODUCT } = productsSlice.actions;
 export const fetchProducts = () => async (dispatch) => {
   try {
     const response = await fetch("https://api.noroff.dev/api/v1/online-shop");
-    //const response = await fetch("https://dummyjson.com/products");
     const data = await response.json();
-    console.log("HEI FRA INNI productsSREDUCER");
     console.log("data", data);
     dispatch(SET_ALL_PRODUCTS(data));
   } catch (e) {
@@ -40,10 +38,12 @@ export const fetchProducts = () => async (dispatch) => {
   }
 };
 
-export const fetchOneProduct = (ID) => async (dispatch) => {
+export const fetchOneProduct = (id) => async (dispatch) => {
   let response;
   try {
-    const response = await fetch(`https://dummyjson.com/products/${ID}`);
+    const response = await fetch(
+      `https://api.noroff.dev/api/v1/online-shop/${id}`
+    );
     const productData = await response.json();
     dispatch(SET_PRODUCT(productData));
   } catch (e) {

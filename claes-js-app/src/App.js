@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import Products from "./components/views/Products";
+import Router from "./routes/Router";
 
 function App() {
   const dispatch = useDispatch();
@@ -19,7 +20,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <Products />
+      <Router />
       Hello from App.js
     </div>
   );
