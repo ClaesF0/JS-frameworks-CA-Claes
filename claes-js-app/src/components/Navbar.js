@@ -4,27 +4,29 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Search from "./Search";
+import cartSlice from "../store/modules/cartSlice";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { cart } = useSelector((state) => state.cart);
 
   return (
     <>
-      <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
-        <div class="container flex flex-wrap items-center justify-between mx-auto">
-          <div class="flex md:order-2">
+      <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-900">
+        <div className="container flex flex-wrap items-center justify-between mx-auto">
+          <div className="flex md:order-2">
             <button
               onClick={() => setIsOpen(!isOpen)}
               data-collapse-toggle="navbar-search"
-              className="absolute md:hidden right-0 top-0 mt-4 mr-4"
+              classNameName="absolute md:hidden right-0 top-0 mt-4 mr-4"
               type="button"
-              class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+              className="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
               aria-controls="navbar-search"
               aria-expanded="false"
             >
-              <span class="sr-only">Open menu</span>
+              <span className="sr-only">Open menu</span>
               <svg
-                class="w-6 h-6"
+                className="w-6 h-6"
                 aria-hidden="true"
                 fill="currentColor"
                 viewBox="0 0 20 20"
@@ -48,36 +50,36 @@ const Navbar = () => {
           </div>
 
           <div
-            class={` md:flex md:w-full md:justify-between md:order-1 ${
+            className={` md:flex md:w-full md:justify-between md:order-1 ${
               isOpen ? "justify-between w-full" : "hidden"
             } `}
             id="navbar-search"
           >
-            <Link to="/" class="flex items-center">
-              <span class="self-center text-xl font-semibold whitespace-nowrap">
+            <Link to="/" className="flex items-center">
+              <span className="self-center text-xl font-semibold whitespace-nowrap">
                 Home
               </span>
             </Link>
 
             <Search />
 
-            <ul class="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+            <ul className="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
               <Link to="/cart">
-                <div class="relative flex items-center ">
-                  <span class="[&>svg]:w-5">
+                <div className="relative flex items-center ">
+                  <span className="[&>svg]:w-5">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
                       fill="currentColor"
-                      class="h-5 w-5"
+                      className="h-5 w-5"
                     >
                       <path d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
                     </svg>
                   </span>
 
-                  <div class="relative" data-te-dropdown-ref>
-                    <span class="absolute -mt-2.5 ml-2 rounded-full bg-red-700 py-0 px-1.5 text-xs text-white">
-                      1
+                  <div className="relative" data-te-dropdown-ref>
+                    <span className="absolute -mt-2.5 ml-2 rounded-full bg-red-700 py-0 px-1.5 text-xs text-white">
+                      {cart.length > 0 ? cart.length : ""}
                     </span>
                   </div>
                 </div>

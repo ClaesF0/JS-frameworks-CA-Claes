@@ -12,9 +12,7 @@ const SingleProduct = () => {
   const [similarProducts, setSimilarProducts] = useState([]);
 
   useEffect(() => {
-    console.log("product fra singleproduct", product);
     console.log("id fra single product", id);
-
     dispatch(fetchOneProduct(id));
   }, [dispatch, id]);
 
@@ -165,5 +163,5 @@ const SingleProduct = () => {
     </div>
   );
 };
-console.log("SingleProduct.js");
+
 export default SingleProduct;

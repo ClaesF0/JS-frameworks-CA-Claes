@@ -7,7 +7,6 @@ import ProductList from "../components/ProductList";
 const products = () => {
   const dispatch = useDispatch();
   const { products } = useSelector((state) => state.productsReducer);
-  console.log("hei jeg er products.js");
 
   useEffect(() => {
     dispatch(fetchProducts());

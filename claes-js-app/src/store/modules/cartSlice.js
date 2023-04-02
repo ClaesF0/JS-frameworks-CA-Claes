@@ -27,6 +27,7 @@ const cartSlice = createSlice({
 
       if (cartWithStuffInIt) {
         console.log("cartWithStuffInIt", cartWithStuffInIt);
+        console.log("state.cartWithStuffInIt", state.cartWithStuffInIt);
       } else {
         state.cartWithStuffInIt = [...state.cartWithStuffInIt, action.payload];
         state.numberOfStuffInCart = state.cartWithStuffInIt.length;
