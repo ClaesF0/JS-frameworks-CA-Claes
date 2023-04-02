@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import Products from "./components/views/Products";
 import Router from "./routes/Router";
+import Footer from "./components/Footer";
 
 function App() {
   const dispatch = useDispatch();
@@ -21,6 +22,7 @@ function App() {
       <Navbar />
 
       <Router />
+      <Footer />
     </div>
   );
 }
