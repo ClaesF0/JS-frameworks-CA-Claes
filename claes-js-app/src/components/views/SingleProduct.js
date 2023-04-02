@@ -34,19 +34,19 @@ const SingleProduct = () => {
 
   return (
     <div>
-      <div class="container mx-auto flex flex-col md:flex-row px-2 border-2 border-green-400">
+      <div class="container mx-auto flex flex-col md:flex-row px-2 ">
         <div class="w-full md:w-3/4  md:mb-0">
           <img
-            class="max-h-screen object-fit object-center rounded"
+            class="max-h-screen object-fit object-center rounded "
             src={product.imageUrl}
             alt={product.title}
           />
         </div>
 
-        <div class="w-full md:w-1/3 border-2 border-blue-400 block ">
+        <div class="w-full md:w-1/3 block ">
           <h1 class="text-2xl font-bold mb-2 mx-auto">{product.title}</h1>
 
-          <div class="text-sm font-semibold border-2 border-cyan-400  pl-0 text-start">
+          <div class="text-sm font-semibold  pl-0 text-start">
             Rated {product.rating}/5
             <label class="rating-label ">
               <input
@@ -101,7 +101,7 @@ const SingleProduct = () => {
                   <h2>Reviews:</h2>
                   <div
                     key={review.id}
-                    className="mb-4 border-2 border-gray-400"
+                    className="mb-4 border-2 border-gray-400 rounded-md"
                   >
                     <h3 className="font-semibold">
                       Review by {review.username}
