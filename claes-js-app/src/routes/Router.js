@@ -5,6 +5,7 @@ import SingleProduct from "../components/views/SingleProduct";
 import CartCheckoutPage from "../components/views/CartCheckoutPage";
 import SuccessPage from "../components/views/SuccessPage";
 import ContactForm from "../components/views/ContactPage";
+import ErrorPage from "../components/views/ErrorPage";
 
 function Router() {
   return (
@@ -16,7 +17,7 @@ function Router() {
         <Route path="/cart" element={<CartCheckoutPage />} />
         <Route path="/success" element={<SuccessPage />} />
         <Route path="/contact" element={<ContactForm />} />
-        <Route path="*" element={<h1>404</h1>} />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
     </>
   );

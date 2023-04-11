@@ -32,11 +32,21 @@ const cartSlice = createSlice({
         state.cartWithStuffInIt = [...state.cartWithStuffInIt, action.payload];
         state.numberOfStuffInCart = state.cartWithStuffInIt.length;
         console.log(
-          "state.cartWithStuffInIt.lenght",
+          "state.cartWithStuffInIt.length",
           state.cartWithStuffInIt.length
         );
       }
     },
+    REMOVE_LAST_PRODUCT_FROM_CART: (state, action) => {
+      const lastIndex = state.cart
+        .map((product) => product.id)
+        .lastIndexOf(action.payload);
+      if (lastIndex !== -1) {
+        state.cart.splice(lastIndex, 1);
+      }
+      state.numberOfStuffInCart = state.cart.length;
+    },
+
     REMOVE_FROM_CART: (state, action) => {
       state.cart = state.cart.filter(
         (product) => product.id !== action.payload
@@ -51,6 +61,7 @@ export default cartSlice.reducer;
 //actions
 
 const { ADD_TO_CART } = cartSlice.actions;
+const { REMOVE_LAST_PRODUCT_FROM_CART } = cartSlice.actions;
 const { REMOVE_FROM_CART } = cartSlice.actions;
 
 export const addToCart = (product) => async (dispatch) => {
@@ -58,6 +69,14 @@ export const addToCart = (product) => async (dispatch) => {
     dispatch(ADD_TO_CART(product));
   } catch (e) {
     return console.error("error from addToCart", e.message);
+  }
+};
+
+export const removeLastProductFromCart = (id) => async (dispatch) => {
+  try {
+    dispatch(REMOVE_LAST_PRODUCT_FROM_CART(id));
+  } catch (e) {
+    return console.error("error from removeLastProductFromCart", e.message);
   }
 };
 

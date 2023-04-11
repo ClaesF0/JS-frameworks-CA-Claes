@@ -4,10 +4,12 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <>
-      <footer className="bg-gray-200 text-center text-xs p-3 absolute bottom-0 w-full">
-        <Link to="/contact">Contact page</Link>
+      <footer className="bg-gray-200 text-center text-xs p-3 bottom-0 w-full">
+        <Link className="text-blue-400" to="/contact">
+          Contact page
+        </Link>
         <p>
-          &copy; {new Date().getFullYear()}{" "}
+          &copy; 2023 - {new Date().getFullYear()}{" "}
           <Link to="/" className="text-blue-400">
             Claes
           </Link>
